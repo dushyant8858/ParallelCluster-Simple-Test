@@ -1,5 +1,5 @@
 We recommend that you install AWS ParallelCluster in a virtual environment to avoid requirement version conflicts with other pip packages.
-*# https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html
+* References doc to install Virtual Env: https://docs.aws.amazon.com/parallelcluster/latest/ug/install-v3-virtual-environment.html
 
 Prerequisites
 AWS ParallelCluster requires Python 3.7 or later. If you don't already have it installed, download a compatible version for your platform at python.org.
