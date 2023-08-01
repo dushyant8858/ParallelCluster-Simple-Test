@@ -66,7 +66,7 @@ To upgrade to the latest version of AWS ParallelCluster, run the installation co
 (apc-ve)~$ python3 -m pip install --upgrade "aws-parallelcluster"
 ```
 
-### AWS Batch
+### 1. AWS Batch
 ```
 pcluster configure --config batch-cluster-config.yaml --region us-east-2
 
@@ -122,7 +122,7 @@ AWS Batch
 ```
 
 
-### AWS Slurm
+### 2. AWS Slurm
 ```
 # Slurm
 
@@ -264,7 +264,22 @@ drwxr-xr-x 18 root root  4096 Aug  1 17:03 ..
 -rw-r--r--  1 root root 10324 Aug  1 17:08 slurm_health_check.log
 ```
 
-```
+
+
+
+
+
+
+### 3. Logs to collect 
+1. Required Info
+ - AWS ParallelCluster version [e.g. 3.1.4]:
+ - Full cluster configuration without any credentials or personal data.
+ - Cluster name:
+ - Output of pcluster describe-cluster command (3.x only).
+ - [Optional] Arn of the cluster CloudFormation main stack:
+
+
+2. If you are reporting issues about scaling or job failure
 * From Head node: 
 `/var/log/parallelcluster/clustermgtd`
 `/var/log/parallelcluster/clusterstatusmgtd` (if version >= 3.2.0)
@@ -277,8 +292,6 @@ drwxr-xr-x 18 root root  4096 Aug  1 17:03 ..
 `/var/log/parallelcluster/computemgtd.log`
 `/var/log/slurmd.log`
 
-
-
 **For issues with Slurm scheduler and ParallelCluster < 2.9.0 please attach the following logs:**
 * From Head node: 
   `/var/log/jobwatcher`
@@ -289,7 +302,8 @@ drwxr-xr-x 18 root root  4096 Aug  1 17:03 ..
   `/var/log/slurmd.log` 
 
 
-
+3. If you are reporting issues about cluster creation failure or node failure
+If the cluster fails creation, please re-execute create-cluster action using --rollback-on-failure false option (3.x) or create action using --norollback option (2.x).
 
 * From Head node: 
   `/var/log/cloud-init.log`
