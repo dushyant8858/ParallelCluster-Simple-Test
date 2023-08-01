@@ -1,0 +1,22 @@
+Region: us-east-2
+Image:
+  Os: alinux2
+HeadNode:
+  InstanceType: t2.small
+  Networking:
+    SubnetId: subnet-0e5e9e09eaa14d678
+  Ssh:
+    KeyName: us-east-2
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: queue1
+    ComputeResources:
+    - Name: t2medium
+      Instances:
+      - InstanceType: t2.medium
+      MinCount: 0
+      MaxCount: 3
+    Networking:
+      SubnetIds:
+      - subnet-0f93eb66d6fe88a1e

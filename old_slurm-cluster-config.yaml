@@ -1,0 +1,29 @@
+# pcluster create-cluster --cluster-name slurm-pcluster --cluster-configuration slurm-cluster-config.yaml --region us-east-2
+# pcluster describe-cluster --cluster-name slurm-pcluster --region us-east-2
+# pcluster ssh --cluster-name slurm-pcluster --region us-east-2 -i /Users/dubaria/Desktop/Keys/us-east-2.pem
+# pcluster delete-cluster --region us-east-2 --cluster-name slurm-pcluster
+
+Region: us-east-2
+Image:
+  Os: alinux2
+HeadNode:
+  InstanceType: t2.medium
+  Networking:
+    SubnetId: subnet-0dfa7d55715afb546
+  Ssh:
+    KeyName: us-east-2
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+    - Name: slurm-queue1
+      ComputeResources:
+        - Name: t2micro
+          Instances:
+            - InstanceType: t2.micro
+          MinCount: 0
+          MaxCount: 4
+      Networking:
+        SubnetIds:
+          - subnet-01f6f9884897e841c
+          - subnet-016aa46b652c4d67e
+          - subnet-04c54c027909e09d5
