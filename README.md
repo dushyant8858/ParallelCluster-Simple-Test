@@ -37,7 +37,7 @@ $ source /Users/dubaria/Desktop/Exercises/ParallelCluster/apc-ve/bin/activate
 
 5) Install Node Version Manager and the latest Long-Term Support (LTS) Node.js version. AWS Cloud Development Kit (AWS CDK) (AWS CDK) requires Node.js for CloudFormation for template generation.
 
-<!-- **Note:**
+**Note:**
 If your Node.js installation isn't working on your platform, you can install an LTS version prior to the latest LTS version. For more information, see the Node.js release schedule and the AWS CDK prerequisites.
 
 Example Node.js installation command:
@@ -50,7 +50,7 @@ $ chmod ug+x ~/.nvm/nvm.sh
 $ source ~/.nvm/nvm.sh
 $ nvm install --lts
 $ node --version
-``` -->
+```
 
 6) Verify that AWS ParallelCluster is installed correctly.
 ```
