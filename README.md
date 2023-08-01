@@ -281,16 +281,16 @@ drwxr-xr-x 18 root root  4096 Aug  1 17:03 ..
 
 2. **If you are reporting issues about scaling or job failure**
 * From Head node: 
-`/var/log/parallelcluster/clustermgtd`
-`/var/log/parallelcluster/clusterstatusmgtd` (if version >= 3.2.0)
-`/var/log/parallelcluster/slurm_resume.log`
-`/var/log/parallelcluster/slurm_suspend.log`
-`/var/log/parallelcluster/slurm_fleet_status_manager.log` (if version >= 3.2.0)
-`/var/log/slurmctld.log`. 
+  `/var/log/parallelcluster/clustermgtd`
+  `/var/log/parallelcluster/clusterstatusmgtd` (if version >= 3.2.0)
+  `/var/log/parallelcluster/slurm_resume.log`
+  `/var/log/parallelcluster/slurm_suspend.log`
+  `/var/log/parallelcluster/slurm_fleet_status_manager.log` (if version >= 3.2.0)
+  `/var/log/slurmctld.log`. 
 
 * From Compute node: 
-`/var/log/parallelcluster/computemgtd.log`
-`/var/log/slurmd.log`
+  `/var/log/parallelcluster/computemgtd.log`
+  `/var/log/slurmd.log`
 
 **For issues with Slurm scheduler and ParallelCluster < 2.9.0 please attach the following logs:**
 * From Head node: 
