@@ -89,7 +89,7 @@ if [[ "${AWS_BATCH_JOB_NODE_INDEX}" -eq  "${AWS_BATCH_JOB_MAIN_NODE_INDEX}" ]]; 
     # Write exit status code
     echo "0" > "${_exit_code_file}"
     # Waiting for compute nodes to terminate
-    sleep 30
+    sleep 3000
 else
     echo "Hello I'm the compute node $HOSTNAME! I let the main node orchestrate the mpi processing!"
     # Since mpi orchestration happens on the main node, we need to make sure the containers representing the compute
