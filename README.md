@@ -199,4 +199,104 @@ sbatch hellojob.sh
 squeue
 
 
+scontrol show node
+
+
+
+
+## Head Node
+cd /var/log/parallelcluster
+
+[ec2-user@ip-10-0-0-135 parallelcluster]$ ls -al 
+total 1584
+drwxrwxrwt  2 root           root               250 Aug  1 01:19 .
+drwxr-xr-x 18 root           root              4096 Aug  1 15:08 ..
+-rw-r--r--  1 root           root             60746 Aug  1 17:08 cfn-hup-runner.log
+-rw-r--r--  1 root           root           1074188 Aug  1 17:08 clustermgtd
+-rw-------  1 pcluster-admin pcluster-admin   16878 Aug  1 17:03 clustermgtd.events
+-rw-r-----  1 root           root            328412 Aug  1 17:08 clusterstatusmgtd
+-rw-------  1 pcluster-admin pcluster-admin       0 Aug  1 01:19 compute_console_output.log
+-rw-r-----  1 pcluster-admin pcluster-admin       0 Aug  1 01:19 slurm_fleet_status_manager.log
+-rw-r--r--  1 pcluster-admin pcluster-admin       0 Aug  1 01:19 slurm_resume.events
+-rw-r--r--  1 pcluster-admin pcluster-admin   20911 Aug  1 17:04 slurm_resume.log
+-rw-r--r--  1 pcluster-admin pcluster-admin    2672 Aug  1 17:03 slurm_suspend.log
+
+
+
+
+scontrol show node
+# Get IP of the Compute node
+
+scontrol show node | grep -i NodeAddr
+   NodeAddr=queue1-dy-t2medium-1 NodeHostName=queue1-dy-t2medium-1 
+   NodeAddr=10.0.22.95 NodeHostName=queue1-dy-t2medium-2 Version=23.02.2
+   NodeAddr=10.0.28.114 NodeHostName=queue1-dy-t2medium-3 Version=23.02.2
+
+
+
+
+
+[ec2-user@ip-10-0-0-135 ~]$ ssh ec2-user@10.0.22.95 -i us-east-2.pem 
+Warning: Permanently added '10.0.22.95' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+
+## Your are in the Compute node
+
+[ec2-user@queue1-dy-t2medium-2 ~]$ 
+[ec2-user@queue1-dy-t2medium-2 ~]$ 
+[ec2-user@queue1-dy-t2medium-2 ~]$ 
+[ec2-user@queue1-dy-t2medium-2 ~]$ 
+[ec2-user@queue1-dy-t2medium-2 ~]$ cd 
+[ec2-user@queue1-dy-t2medium-2 ~]$ cd /var/log/parallelcluster
+[ec2-user@queue1-dy-t2medium-2 parallelcluster]$ 
+[ec2-user@queue1-dy-t2medium-2 parallelcluster]$ 
+[ec2-user@queue1-dy-t2medium-2 parallelcluster]$ ls -al 
+total 20
+drwxrwxrwt  2 root root    88 Aug  1 17:05 .
+drwxr-xr-x 18 root root  4096 Aug  1 17:03 ..
+-rw-r--r--  1 root root  2480 Aug  1 17:11 computemgtd
+-rw-r--r--  1 root root     0 Aug  1 17:05 slurm_health_check.events
+-rw-r--r--  1 root root 10324 Aug  1 17:08 slurm_health_check.log
+```
+
+```
+* From Head node: 
+`/var/log/parallelcluster/clustermgtd`
+`/var/log/parallelcluster/clusterstatusmgtd` (if version >= 3.2.0)
+`/var/log/parallelcluster/slurm_resume.log`
+`/var/log/parallelcluster/slurm_suspend.log`
+`/var/log/parallelcluster/slurm_fleet_status_manager.log` (if version >= 3.2.0)
+`/var/log/slurmctld.log`. 
+
+* From Compute node: 
+`/var/log/parallelcluster/computemgtd.log`
+`/var/log/slurmd.log`
+
+
+
+**For issues with Slurm scheduler and ParallelCluster < 2.9.0 please attach the following logs:**
+* From Head node: 
+  `/var/log/jobwatcher`
+  `/var/log/sqswatcher`
+  `/var/log/slurmctld.log` if scheduler == slurm.
+* From Compute node:
+  `/var/log/nodewatcher`
+  `/var/log/slurmd.log` 
+
+
+
+
+* From Head node: 
+  `/var/log/cloud-init.log`
+  `/var/log/cfn-init.log`
+  `/var/log/chef-client.log`
+
+* From Compute node: 
+  `/var/log/cloud-init-output.log`
+
 ```
