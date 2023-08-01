@@ -101,7 +101,8 @@ AWS Batch
 #####
 # pcluster describe-cluster-instances -n batch-pcluster -r us-east-2
 # sudo scp -i /Users/dubaria/Desktop/Keys/us-east-2.pem /Users/dubaria/Desktop/Exercises/ParallelCluster/Batch-files/* ec2-user@3.14.130.120:/home/ec2-user
-# sudo scp -i /Users/dubaria/Desktop/Keys/us-east-2.pem /Users/dubaria/Desktop/Exercises/ParallelCluster/Batch-files/* ec2-user@$(pcluster describe-cluster-instances -n slurm-pcluster -r us-east-2 | jq -r '.instances[] | select(.nodeType=="HeadNode") | .publicIpAddress'):/home/ec2-user
+# sudo scp -i /Users/dubaria/Desktop/Keys/us-east-2.pem /Users/dubaria/Desktop/Exercises/ParallelCluster/Batch-files/* ec2-user@$(pcluster describe-cluster-instances -n batch-pcluster -r us-east-2 | jq -r '.instances[] | select(.nodeType=="HeadNode") | .publicIpAddress'):/home/ec2-user
+# sudo scp -i /Users/dubaria/Desktop/Keys/us-east-2.pem /Users/dubaria/Desktop/Keys/us-east-2.pem ec2-user@$(pcluster describe-cluster-instances -n batch-pcluster -r us-east-2 | jq -r '.instances[] | select(.nodeType=="HeadNode") | .publicIpAddress'):/home/ec2-user
 # pcluster ssh --cluster-name batch-pcluster --region us-east-2 -i /Users/dubaria/Desktop/Keys/us-east-2.pem
 
 

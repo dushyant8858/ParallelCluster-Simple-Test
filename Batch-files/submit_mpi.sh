@@ -1,6 +1,12 @@
 #!/bin/bash +xv
 set -x
 
+
+echo "Hello World from $(hostname)"
+echo "################################################################"
+echo "Thank you for attending Parallel Cluster training on $(date) :) "
+echo "################################################################"
+
 echo "ip container: $(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)"
 echo "ip host: $(curl -s "http://169.254.169.254/latest/meta-data/local-ipv4")"
 
