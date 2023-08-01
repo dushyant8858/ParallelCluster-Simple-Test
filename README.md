@@ -68,7 +68,7 @@ To upgrade to the latest version of AWS ParallelCluster, run the installation co
 ```
 
 ###
-
+```
 pcluster configure --config batch-cluster-config.yaml --region us-east-2
 
 Allowed values for EC2 Key Pair Name:
@@ -91,6 +91,7 @@ The stack has been created.
 Configuration file written to batch-cluster-config.yaml
 You can edit your configuration file or simply run 'pcluster create-cluster --cluster-configuration batch-cluster-config.yaml --cluster-name cluster-name --region us-east-2' to create your cluster.
 
+```
 ```
 AWS Batch
 
