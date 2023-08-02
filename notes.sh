@@ -23,4 +23,5 @@ pcluster version
 
 python3 -m pip install --upgrade "aws-parallelcluster"
 
+pcluster version
 
